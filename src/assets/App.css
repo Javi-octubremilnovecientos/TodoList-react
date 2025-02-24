@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Flex', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border-radius: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  -ms-border-radius: 9px;
+  -o-border-radius: 9px;
+}
+
+:root {
+  --primary: rgb(76, 75, 75);
+  --secondary: rgb(38, 135, 199);
+  --del: rgb(255, 157, 100);
+}
+
+
+
+main {
+  background-color: var(--primary);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h4 {
+  margin-top: 12px;
+  text-align: center;
+  color: white;
+  letter-spacing:1.8px;
+  font-size: 1.9em;
+  font-weight:normal;
+}
+.InputComp {
+  width: 88%;
+  height: 19%;
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+.InputComp input{
+  height: 22%;
+  width: 78%;
+  border: none;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+.InputComp input:focus{
+    appearance: none;
+    border: none;
+}
+
+.InputComp button{
+  border: none;
+  height: 22%;
+  width: 12%;
+  display: flex;
+ justify-content: center;
+ align-items: center;
+  background-color: var(--secondary);
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  font-size: 1.5em;
+}
+
+.InputComp button:hover{
+ transform: scale(0.9);
+ -webkit-transform: scale(0.9);
+ -moz-transform: scale(0.9);
+ -ms-transform: scale(0.9);
+ -o-transform: scale(0.9);
+ background-color: var(--secondary);
+ filter: brightness(0.9);
+ -webkit-filter: brightness(0.9);
+}
+.TasksComponent {
+  padding-top: 12px;
+  height: 100%;
+  width: 99%;
+  display: flex;
+ border-top:2px solid rgb(0, 0, 0);
+  flex-direction: column;
+  align-items: center;
+}
+
+.SingleTaskComp {
+background-color: rgb(43, 42, 42);
+ box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.767);
+  color: white;
+  width: 97%;
+  height: 9%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 2%;
+  box-sizing: border-box;
+  padding: 2%;
+}
+
+.SingleTaskComp input:disabled{
+  color: white;
+  background-color: rgb(43, 42, 42);
+  border: none;
+}
+
+.SingleTaskComp label{
+  font-size: 0.8em;
+  color: rgb(170, 170, 170);
+}
+.SingleTaskComp  button{
+  border: none;
+  height: 60%;
+  width: 12%;
+  background-color: var(--secondary);
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  font-size: 0.9em;
+}
