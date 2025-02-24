@@ -41,7 +41,7 @@ export const TaskComponent = ({ name, id, Del }) => {
 
   return (
     <div style={{backgroundColor:"green"}}>
-      <div className="SingleTaskComp">
+      <div className="SingleTaskComp"   style={{backgroundColor:"green"}}>
         <input
           type="text"
           value={valor}
