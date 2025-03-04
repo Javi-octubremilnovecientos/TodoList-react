@@ -18,7 +18,7 @@
 
 
 main {
-   background-color: green;
+   background-color: rgb(63, 63, 63);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -34,16 +34,19 @@ h4 {
   font-size: 1.9em;
   font-weight:normal;
 }
-.InputComp {
+.InputComp {  
+  padding-top: 13px;
   width: 88%;
-  height: 19%;
+  height: 29%;
   display: flex;
-  justify-content:space-evenly;
+  flex-direction: column;
+  justify-content:space-between;
   align-items: center;
   margin-bottom: 2%;
 }
 
 .InputComp input{
+
   height: 22%;
   width: 78%;
   border: none;
@@ -52,6 +55,8 @@ h4 {
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
+
+
 }
 .InputComp input:focus{
     appearance: none;
@@ -60,7 +65,7 @@ h4 {
 
 .InputComp button{
   border: none;
-  height: 22%;
+  height: 19%;
   width: 12%;
   display: flex;
  justify-content: center;
@@ -78,7 +83,7 @@ h4 {
   -moz-transition: all 1s;
   -ms-transition: all 1s;
   -o-transition: all 1s;
-  font-size: 1.5em;
+ 
 }
 
 .InputComp button:hover{
@@ -103,7 +108,7 @@ h4 {
 }
 
 .SingleTaskComp {
-    background-color: green;
+    background-color: rgb(78, 78, 78);
  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.767);
   color: white;
   width: 97%;
@@ -119,13 +124,13 @@ h4 {
 
 .SingleTaskComp input:disabled{
   color: white;
-
+  background-color: rgb(78, 78, 78);
   border: none;
 }
 
 .SingleTaskComp label{
   font-size: 0.8em;
-  color: rgb(170, 170, 170);
+  color: rgb(187, 186, 186);
 }
 .SingleTaskComp  button{
   border: none;

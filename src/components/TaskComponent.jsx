@@ -2,7 +2,8 @@ import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import CircleIcon from "@mui/icons-material/Circle";
 
-export const TaskComponent = ({ name, id, Del }) => {
+export const TaskComponent = ({ name, id, Del, fecha, setFecha,prioridad,setPriority }) => {
+  
   const [completed, setcompleted] = useState(false);
 
   const [isDisabled, setisDisabled] = useState(true);
@@ -11,11 +12,11 @@ export const TaskComponent = ({ name, id, Del }) => {
 
   const [open, setOpen] = useState(false);
 
-  const [date, setdate] = useState();
-
   const [info, setinfo] = useState("");
-
-  const [priority, setpriority] = useState("");
+  
+  function addInfo(e) {
+    setinfo(e.target.value)
+  }
 
   function check() {
     setcompleted(!completed);
@@ -29,50 +30,38 @@ export const TaskComponent = ({ name, id, Del }) => {
     setvalue(e.target.value);
   }
 
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  const addDate = (e) => setdate("deadtime " + e.target.value);
-  const addInfo = (e) => setinfo(e.target.value);
-
-  function baja() {
-    setpriority([]);
-  }
-
+ 
+  const defaultColor = "grey";
   return (
-    <div style={{backgroundColor:"green"}}>
-      <div className="SingleTaskComp"   style={{backgroundColor:"green"}}>
+    <>
+      <div className="SingleTaskComp">
         <input
           type="text"
           value={valor}
           disabled={isDisabled ? true : false}
           onChange={(e) => setValor(e)}
-          multiline
         />
 
         <CircleIcon
           style={{
             fontSize: 19,
-            color:
-            priority === "baja"
-            ? "green"
-            : priority === "media"
-            ? "orange"
-            : priority === "alta"
-            ? "red"
-            : "gray",
+            color: 
+            prioridad === "alta" ? "red" : 
+            prioridad === "media" ? "orange" : 
+            prioridad === "baja" ? "green" : defaultColor,
           }}
         />
-        <label>{date}</label>
+        <label>{fecha}</label>
         <label>{completed ? "completed" : "uncompleted"}</label>
         <input type="checkbox" onChange={() => check()} />
         <button onClick={() => setDis()}>{isDisabled ? "edit" : "save"}</button>
         <button onClick={handleOpen}>Info</button>
         <button onClick={() => Del(id)}>Del</button>
       </div>
-      <Modal 
-      open={open} 
-      onClose={handleClose}>
+      <Modal open={open} onClose={handleClose}>
         <Box
           sx={{
             position: "absolute",
@@ -97,17 +86,14 @@ export const TaskComponent = ({ name, id, Del }) => {
             onChange={(e) => setValor(e)}
           />
           <label>Fecha de ejecución</label>
-          <input
-            id="standard-basic"
-            type="date"
-            variant="standard"
-            value="date"
-            onChange={(e) => addDate(e)}
-          />
+          <input id="standard-basic" 
+          type="date" 
+          variant="standard"
+          value={fecha}
+          onChange={(e)=>setFecha(id, e)} />
           <label>Info. adicional</label>
           <TextField
             id="standard-basic"
-            multiline
             variant="standard"
             value={info}
             onChange={(e) => addInfo(e)}
@@ -117,33 +103,23 @@ export const TaskComponent = ({ name, id, Del }) => {
             sx={{ display: "flex", justifyContent: "space-around", width: 200 }}
           >
             <label>alta</label>
-            <input
-              type="checkbox"
-              name=""
-              id=""
-              onChange={()=>setpriority("alta")}
-            />
+            <input type="checkbox" name=""
+            checked={prioridad == "alta"? true : false} 
+            onChange={()=>setPriority(id, "alta")}/>
             <label>Media</label>
-            <input
-              type="checkbox"
-              name=""
-              id=""
-              onChange={()=>setpriority("media")}
-            />
+            <input type="checkbox" name=""
+            checked={prioridad == "media"? true : false}
+            onChange={()=>setPriority(id, "media")} />
             <label>baja</label>
-            <input
-              type="checkbox"
-              name=""
-              id=""
-              onChange={()=>setpriority("baja")}
-            />
+            <input type="checkbox" name=""
+            checked={prioridad == "baja"? true : false}
+            onChange={()=>setPriority(id, "baja")} />
           </Box>
-          <Button variant="contained" color="success"
-          onClick={handleClose}>
+          <Button variant="contained" color="success" onClick={handleClose}>
             Save
           </Button>
         </Box>
       </Modal>
-    </div>
+    </>
   );
 };
